@@ -1,0 +1,50 @@
+<div class="dashboard-container">
+  <div class="dashboard-header">
+    <h1>Welcome, <%= current_user.username %>!</h1>
+    <div class="user-info">
+      <span class="role-badge <%= current_user.admin? ? 'admin' : 'user' %>">
+        <%= current_user.admin? ? '👑 Administrator' : '👤 User' %>
+      </span>
+    </div>
+  </div>
+
+  <div class="dashboard-content">
+    <% if current_user.admin? %>
+      <div class="admin-panel">
+        <h2>Admin Panel</h2>
+        <p>You have administrative privileges. You can manage the system.</p>
+        <div class="stats">
+          <div class="stat-card">
+            <h3>Total Users</h3>
+            <p class="stat-number"><%= User.count %></p>
+          </div>
+          <div class="stat-card">
+            <h3>Administrators</h3>
+            <p class="stat-number"><%= User.where(role: 'admin').count %></p>
+          </div>
+          <div class="stat-card">
+            <h3>Regular Users</h3>
+            <p class="stat-number"><%= User.where(role: 'user').count %></p>
+          </div>
+        </div>
+      </div>
+    <% else %>
+      <div class="user-panel">
+        <h2>User Dashboard</h2>
+        <p>Welcome to your dashboard. You are logged in as a regular user.</p>
+        <div class="info-box">
+          <h3>Your Account Information</h3>
+          <ul>
+            <li><strong>Username:</strong> <%= current_user.username %></li>
+            <li><strong>Role:</strong> <%= current_user.role.capitalize %></li>
+            <li><strong>Member since:</strong> <%= current_user.created_at.strftime("%B %d, %Y") %></li>
+          </ul>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="dashboard-actions">
+    <%= button_to "Logout", logout_path, method: :delete, class: "btn btn-danger" %>
+  </div>
+</div>

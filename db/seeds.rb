@@ -7,3 +7,30 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+# Create users
+User.find_or_create_by!(username: "user1") do |user|
+  user.password = "password123"
+  user.password_confirmation = "password123"
+  user.role = "user"
+end
+
+User.find_or_create_by!(username: "user2") do |user|
+  user.password = "password123"
+  user.password_confirmation = "password123"
+  user.role = "user"
+end
+
+User.find_or_create_by!(username: "user3") do |user|
+  user.password = "password123"
+  user.password_confirmation = "password123"
+  user.role = "user"
+end
+
+User.find_or_create_by!(username: "admin") do |user|
+  user.password = "admin123"
+  user.password_confirmation = "admin123"
+  user.role = "admin"
+end
+
+puts "Created #{User.count} users"
