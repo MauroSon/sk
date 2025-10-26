@@ -88,3 +88,20 @@ kamal deploy
 ## License
 
 This project is available for use under the terms specified by the project owner.
+
+## Autoria
+
+### Autor Principal
+- **Nome:** Mauro
+- **GitHub:** [@MauroSon](https://github.com/MauroSon)
+- **Papel:** Criador e Desenvolvedor Principal do Projeto
+
+### Contribuidores
+
+Agradecemos a todos que contribuíram para este projeto!
+
+Para ver a lista completa de contribuidores, visite: [Contribuidores do SK](https://github.com/MauroSon/sk/contributors)
+
+### Mantenedores
+
+- Mauro - [@MauroSon](https://github.com/MauroSon)
