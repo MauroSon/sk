@@ -1,29 +1,90 @@
-# README
+# SK (Kanbino)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A Rails application built with modern web technologies.
 
-Things you may want to cover:
+## Tech Stack
 
-* Ruby version
+- Ruby 3.4.1
+- Rails 8.0.2
+- SQLite3
+- Hotwire (Turbo Rails + Stimulus)
+- Puma web server
 
-* System dependencies
+## Prerequisites
 
-* Configuration
+- Ruby 3.4.1
+- SQLite3
+- Docker (optional, for containerized deployment)
 
-* Database creation
+## Installation
 
-* Database initialization
+### Local Setup
 
-* How to run the test suite
+1. Install dependencies:
+   ```bash
+   bundle install
+   ```
 
-* Services (job queues, cache servers, search engines, etc.)
+2. Setup database:
+   ```bash
+   rails db:create
+   rails db:migrate
+   ```
 
-* Deployment instructions
+3. Start server:
+   ```bash
+   rails server
+   ```
 
-* ...
-# sk
-# sk
-# sk
-# sk
-# sk
+The application will be available at `http://localhost:3000`
+
+### Docker Setup
+
+Build and run with Docker:
+```bash
+docker build -t sk .
+docker run -p 3000:3000 sk
+```
+
+## Development
+
+### Running Tests
+
+```bash
+rails test
+rails test:system
+```
+
+### Code Quality
+
+- **Brakeman** - Security analysis
+- **RuboCop** - Code style and linting
+
+Run code quality checks:
+```bash
+bundle exec brakeman
+bundle exec rubocop
+```
+
+## Deployment
+
+This application supports deployment with:
+- **Kamal** - Container deployment tool
+- **Thruster** - HTTP/2 proxy for asset caching
+
+Deploy with Kamal:
+```bash
+kamal deploy
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is available for use under the terms specified by the project owner.
