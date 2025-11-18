@@ -85,6 +85,24 @@ kamal deploy
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
+## Receitas
+
+### Misto Quente
+
+Classic Brazilian grilled ham and cheese sandwich.
+
+**Ingredientes:**
+- 2 fatias de pão de forma
+- 2 fatias de queijo (mussarela ou prato)
+- 2 fatias de presunto
+- Manteiga
+
+**Modo de Preparo:**
+1. Passe manteiga nas fatias de pão
+2. Coloque o queijo e o presunto entre as fatias
+3. Grelhe em uma sanduicheira ou frigideira até dourar
+4. Sirva quente
+
 ## License
 
 This project is available for use under the terms specified by the project owner.
