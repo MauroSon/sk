@@ -1,0 +1,54 @@
+<% content_for :title, "Welcome to Kanbino - Onboarding" %>
+
+<div class="onboarding-container" data-controller="onboarding">
+  <div class="onboarding-wrapper">
+    <!-- Progress Bar -->
+    <div class="onboarding-progress">
+      <div class="progress-bar">
+        <div class="progress-fill" style="width: <%= @progress_percentage %>%"></div>
+      </div>
+      <div class="progress-text">
+        Step <%= @step_index + 1 %> of <%= @total_steps %>
+      </div>
+    </div>
+
+    <!-- Step Content -->
+    <div class="onboarding-content">
+      <%= render partial: "onboarding/steps/#{@current_step}" %>
+    </div>
+
+    <!-- Navigation -->
+    <div class="onboarding-navigation">
+      <% if @step_index > 0 %>
+        <%= link_to "Previous", onboarding_path(step: OnboardingController::STEPS[@step_index - 1]),
+            class: "btn btn-secondary",
+            data: { turbo_frame: "_top" } %>
+      <% else %>
+        <div></div>
+      <% end %>
+
+      <% if @step_index < @total_steps - 1 %>
+        <%= button_to "Next", onboarding_update_path,
+            method: :patch,
+            params: { step: @current_step },
+            class: "btn btn-primary",
+            data: { turbo_frame: "_top" } %>
+      <% elsif @current_step == "complete" %>
+        <%= button_to "Get Started", onboarding_update_path,
+            method: :patch,
+            params: { step: @current_step },
+            class: "btn btn-primary btn-large",
+            data: { turbo_frame: "_top" } %>
+      <% end %>
+    </div>
+
+    <!-- Skip Option (only show on early steps) -->
+    <% if @step_index < @total_steps - 1 %>
+      <div class="onboarding-skip">
+        <%= link_to "Skip onboarding", onboarding_path(step: "complete"),
+            class: "skip-link",
+            data: { turbo_confirm: "Are you sure you want to skip the onboarding tour?", turbo_frame: "_top" } %>
+      </div>
+    <% end %>
+  </div>
+</div>
