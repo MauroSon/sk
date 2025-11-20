@@ -2,6 +2,14 @@
 
 A Rails application built with modern web technologies.
 
+## Authors
+
+**Main Author**
+- **Mauro Son** - *Creator & Maintainer* - [@MauroSon](https://github.com/MauroSon)
+
+**Contributors**
+See the list of [contributors](https://github.com/MauroSon/sk/contributors) who participated in this project.
+
 ## Tech Stack
 
 - Ruby 3.4.1
